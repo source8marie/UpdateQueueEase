@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Notifications | QueueEase</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    let showingAll = false; // Track if "See All" is currently active
+
+    // Fetch and display notifications
+    async function loadNotifications(limit = 5) {
+      try {
+        const userId = localStorage.getItem('id');
+        if (!userId) throw new Error('User not logged in.');
+
+        const response = await fetch(`/api/users/notifications/${userId}?limit=${limit}`);
+        if (!response.ok) throw new Error('Failed to fetch notifications.');
+
+        const notifications = await response.json();
+        const notificationsContainer = document.getElementById('notificationsContainer');
+
+        if (notifications.length > 0) {
+          notificationsContainer.innerHTML = notifications
+            .map(
+              (notification) => `
+              <div class="notification-card">
+                <p>${notification.message}</p>
+                <span>${new Date(notification.created_at).toLocaleString()}</span>
+              </div>
+            `
+            )
+            .join('');
+        } else {
+          notificationsContainer.innerHTML = '<p>No notifications found.</p>';
+        }
+      } catch (error) {
+        console.error('Error loading notifications:', error);
+        document.getElementById('notificationsContainer').innerHTML =
+          '<p>Error loading notifications. Please try again later.</p>';
+      }
+    }
+
+    // Toggle between showing all notifications and the default view
+    async function toggleNotifications() {
+      const seeAllBtn = document.getElementById('seeAllBtn');
+
+      if (showingAll) {
+        // Return to the default view (5 most recent)
+        await loadNotifications(5);
+        seeAllBtn.textContent = 'See All';
+        showingAll = false;
+      } else {
+        // Show all notifications
+        await loadNotifications(0); // 0 means no limit
+        seeAllBtn.textContent = 'Show Recent';
+        showingAll = true;
+      }
+    }
+
+    // Listen for real-time notifications
+    socket.on('transactionCompleted', (data) => handleRealTimeNotification(`Transaction #${data.transactionNumber} has been completed.`));
+    socket.on('transactionInProgress', (data) => handleRealTimeNotification(`Your transaction #${data.transactionNumber} is now in progress.`));
+    socket.on('nextInLineNotification', (data) => handleRealTimeNotification('You are next in line. Please be ready.'));
+    socket.on('secondInLineNotification', (data) => handleRealTimeNotification('You are second in line. Please prepare.'));
+    socket.on('systemNotification', (data) => handleRealTimeNotification(data.message));
+
+    // Handle real-time notification display
+    function handleRealTimeNotification(message) {
+      const notificationsContainer = document.getElementById('notificationsContainer');
+      const notificationCard = `
+        <div class="notification-card">
+          <p>${message}</p>
+          <span>${new Date().toLocaleString()}</span>
+        </div>
+      `;
+      notificationsContainer.innerHTML = notificationCard + notificationsContainer.innerHTML;
+    }
+
+    // Auto-update notifications every second
+    function startAutoUpdate() {
+      setInterval(() => {
+        const limit = showingAll ? 0 : 5; // Adjust limit based on "See All" state
+        loadNotifications(limit);
+      }, 1000); // Update every second
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadNotifications(); // Load recent 5 notifications by default
+
+      const userId = localStorage.getItem('id');
+      if (userId) {
+        socket.emit('registerUser', userId);
+      }
+
+      // Attach event listener to "See All" button
+      document.getElementById('seeAllBtn').addEventListener('click', toggleNotifications);
+
+      // Start auto-updating notifications
+      startAutoUpdate();
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>User Notifications</h1>
+    <nav>
+      <a href="user-dashboard.html">Dashboard</a>
+      <a href="user-notifications.html">Notifications</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+  <main>
+    <section id="notificationsContainer">
+      <!-- Notifications will load here dynamically -->
+      <p>Loading notifications...</p>
+    </section>
+    <button id="seeAllBtn">See All</button>
+  </main>
+</body>
+</html>
