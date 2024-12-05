@@ -19,6 +19,20 @@ body {
   color: #ADBC9F; /* Light green hover effect */
 }
 
+/* Highlight the active nav item */
+.nav-item.active .nav-link {
+  color: #d3a557; /* Lighter color for the active page */
+}
+
+.nav-item .nav-link {
+  color: #FBFADA; /* Light yellow text */
+  text-decoration: none;
+}
+
+.nav-item .nav-link:hover {
+  color: #ADBC9F; /* Light green hover effect */
+}
+
 /* Registration Form Styles */
 #register-form {
   background-color: #ADBC9F; /* Light green background */
@@ -127,54 +141,54 @@ footer a:hover {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  /* Make the navbar items stack vertically */
-  .navbar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
+/* Make the navbar items stack vertically */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  /* Adjust form width */
-  #register-form {
-      padding: 15px;
-      margin: 20px;
-      width: 90%;
-  }
+/* Adjust form width */
+#register-form {
+  padding: 15px;
+  margin: 20px;
+  width: 90%;
+}
 
-  /* Make form inputs and buttons full width */
-  #register-form .form-control, 
-  #register-form .btn-custom, 
-  .btn-secondary {
-      width: 100%;
-      margin-bottom: 10px;
-  }
+/* Make form inputs and buttons full width */
+#register-form .form-control, 
+#register-form .btn-custom, 
+.btn-secondary {
+  width: 100%;
+  margin-bottom: 10px;
+}
 
-  /* Adjust footer text size for small screens */
-  footer {
-      font-size: 12px;
-  }
+/* Adjust footer text size for small screens */
+footer {
+  font-size: 12px;
+}
 }
 
 /* Small screens (e.g., mobile phones) */
 @media (max-width: 480px) {
-  /* Further reduce form padding */
-  #register-form {
-      padding: 10px;
-      margin: 10px;
-  }
+/* Further reduce form padding */
+#register-form {
+  padding: 10px;
+  margin: 10px;
+}
 
-  /* Adjust navbar font size */
-  .navbar a {
-      font-size: 14px;
-  }
+/* Adjust navbar font size */
+.navbar a {
+  font-size: 14px;
+}
 
-  /* Adjust buttons' font size and padding */
-  .btn-custom, .btn-secondary {
-      padding: 8px;
-  }
+/* Adjust buttons' font size and padding */
+.btn-custom, .btn-secondary {
+  padding: 8px;
+}
 
-  /* Adjust footer font size */
-  footer {
-      font-size: 12px;
-  }
+/* Adjust footer font size */
+footer {
+  font-size: 12px;
+}
 }

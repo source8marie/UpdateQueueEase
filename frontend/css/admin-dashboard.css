@@ -1,0 +1,177 @@
+/* General Body Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensures the height of the page is full */
+    background-color: #FBFADA; /* Light yellow background */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Padding Adjustment */
+body {
+    padding-bottom: 60px; /* This can be adjusted or removed */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #12372A; /* Dark green background */
+    padding: 10px 20px; /* Add padding to the navbar */
+}
+
+.navbar a {
+    color: #FBFADA; /* Light yellow text */
+    text-decoration: none;
+    margin: 0 15px; /* Add margin between navbar items */
+    display: inline-block;
+}
+
+.navbar a:hover {
+    color: #ADBC9F; /* Light green hover effect */
+}
+
+/* Styling the Logout Button */
+.logout-btn {
+    background-color: #F9C0AB;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout-btn i {
+    font-size: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #a95d5d;
+    transform: scale(1.05);
+}
+
+.logout-btn:focus {
+    outline: none;
+}
+
+/* Center Content Styles */
+.icon-container {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.icon-box {
+    display: block;
+    text-decoration: none;
+    color: #12372A;
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.icon-box i {
+    color: #12372A; /* Dark green */
+    margin-bottom: 10px;
+}
+
+.icon-box p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.icon-box:hover {
+    color: #ADBC9F; /* Light green */
+    transform: scale(1.1);
+}
+
+/* Footer Styling */
+footer {
+    background-color: #12372A; /* Dark green */
+    color: #FBFADA; /* Light yellow text */
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+}
+
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+footer a {
+    color: #ADBC9F; /* Light green */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #FBFADA; /* Light yellow on hover */
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Navbar Adjustments for Small Screens */
+    .navbar {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .navbar a {
+        display: block;
+        margin: 5px 0; /* Adjust margin for smaller screens */
+        font-size: 14px; /* Smaller font size */
+    }
+
+    /* Adjusting Logout Button for Mobile */
+    .logout-btn {
+        width: 100%; /* Make the button full width */
+        padding: 12px 20px; /* Increase padding for mobile */
+        margin-top: 15px; /* Add margin for spacing */
+    }
+
+    /* Center Content Adjustments */
+    .icon-container {
+        margin-top: 50px; /* Reduced margin for mobile */
+    }
+
+    .icon-box {
+        margin-bottom: 20px; /* Adjust spacing */
+        padding: 15px;
+    }
+
+    .icon-box p {
+        font-size: 16px; /* Smaller font size */
+    }
+
+    /* Footer Styling for Small Screens */
+    footer {
+        font-size: 12px; /* Reduce font size */
+        padding: 10px;
+    }
+}
+
+/* For Small Mobile Screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 8px 10px; /* Adjust padding */
+    }
+
+    .navbar a {
+        font-size: 12px; /* Further reduce font size */
+        margin: 5px 0; /* Adjust margin */
+    }
+
+    .icon-container {
+        margin-top: 30px; /* Further reduce margin for small screens */
+    }
+
+    .icon-box p {
+        font-size: 14px; /* Even smaller font size */
+    }
+
+    footer {
+        font-size: 10px; /* Very small font for footer */
+    }
+}

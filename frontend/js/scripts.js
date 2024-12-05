@@ -1,4 +1,3 @@
-// js/scripts.js
 // Initialize WebSocket connection
 const socket = io();
 
@@ -21,8 +20,6 @@ document.getElementById('loginForm')?.addEventListener('submit', async (event) =
     if (response.ok) {
       localStorage.setItem('id', result.user.id);
       localStorage.setItem('email', result.user.email);
-      localStorage.setItem('first_name', result.user.first_name);
-      localStorage.setItem('last_name', result.user.last_name);
 
       // Register user with WebSocket
       socket.emit('registerUser', result.user.id);
@@ -37,12 +34,6 @@ document.getElementById('loginForm')?.addEventListener('submit', async (event) =
     alert('An error occurred. Please try again later.');
   }
 });
-
-// Logout Function
-function logout() {
-  localStorage.clear();
-  window.location.href = 'index.html';
-}
 
 // WebSocket event handlers
 socket.on('userQueueUpdated', (data) => displayNotification(data.message));

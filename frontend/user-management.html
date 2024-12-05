@@ -4,7 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Management | QueueEase</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+   
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  
+   <link rel="stylesheet" href="css/user-management.css">
+  
   <script src="/socket.io/socket.io.js"></script>
   <script>
     const socket = io(); // Initialize WebSocket connection
@@ -182,87 +191,111 @@
     document.addEventListener('DOMContentLoaded', loadUsers);
   </script>
 </head>
+
 <body>
   <header>
-    <h1>User Management</h1>
-    <nav>
-      <a href="admin-dashboard.html">Dashboard</a>
-      <a href="queue-management.html">Manage Queue</a>
-      <a href="notifications.html">Send Notifications</a>
-      <a href="index.html">Logout</a>
-    </nav>
+    <div class="navbar">
+      <a href="admin-dashboard.html">
+        <i class="fas fa-arrow-left"></i> Go back to Dashboard
+      </a>
+      <span class="queueease">|| QueueEase</span>
+    </div>
   </header>
+  
 
-  <h2>Add/Edit User</h2>
-  <form id="userForm" onsubmit="addUser(event)">
-    <input type="hidden" id="id" name="id">
-    <div>
-      <label for="first_name">First Name:</label>
-      <input type="text" id="first_name" name="first_name" required>
-    </div>
-    <div>
-      <label for="last_name">Last Name:</label>
-      <input type="text" id="last_name" name="last_name" required>
-    </div>
-    <div>
-      <label for="address">Address:</label>
-      <input type="text" id="address" name="address" required>
-    </div>
-    <div>
-      <label for="zip_code">Zip Code:</label>
-      <input type="text" id="zip_code" name="zip_code" required>
-    </div>
-    <div>
-      <label for="contact_number">Contact Number:</label>
-      <input type="text" id="contact_number" name="contact_number" required>
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password">
-    </div>
-    <button type="submit">Save</button>
-    <button type="button" onclick="resetForm()">Cancel</button>
-  </form>
 
-  <h2>Admins List</h2>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Zip Code</th>
-        <th>Contact Number</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody id="adminsTable">
-      <!-- Admin rows will load dynamically here -->
-    </tbody>
-  </table>
+  <!-- Main Content -->
+  <main class="container-centered">
+    <div class="container">
+      <h2 class="text-center mb-4">User Management</h2>
+      <form id="userForm" class="card p-4 shadow mb-5" onsubmit="addUser(event)">
+        <input type="hidden" id="id" name="id">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="first_name" class="form-label">First Name</label>
+            <input type="text" id="first_name" name="first_name" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label for="last_name" class="form-label">Last Name</label>
+            <input type="text" id="last_name" name="last_name" class="form-control" required>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" id="address" name="address" class="form-control" required>
+          </div>
+          <div class="col-md-3">
+            <label for="zip_code" class="form-label">Zip Code</label>
+            <input type="text" id="zip_code" name="zip_code" class="form-control" required>
+          </div>
+          <div class="col-md-3">
+            <label for="contact_number" class="form-label">Contact Number</label>
+            <input type="text" id="contact_number" name="contact_number" class="form-control" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" class="form-control">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-secondary" onclick="resetForm()">Cancel</button>
+        </div>
+      </form>
 
-  <h2>Users List</h2>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Zip Code</th>
-        <th>Contact Number</th>
-        <th>Email</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="usersTable">
-      <!-- User rows will load dynamically here -->
-    </tbody>
-  </table>
+      <!-- Admins Table -->
+      <h3 class="text-center mb-3">Admins List</h3>
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Zip Code</th>
+            <th>Contact Number</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody id="adminsTable">
+          <!-- Admin rows dynamically loaded -->
+        </tbody>
+      </table>
+
+      <!-- Users Table -->
+      <h3 class="text-center mb-3">Users List</h3>
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Zip Code</th>
+            <th>Contact Number</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="usersTable">
+          <!-- User rows dynamically loaded -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer mt-5">
+    ©2024 QueueEase. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="js/user-management.js"></script>
 </body>
 </html>
