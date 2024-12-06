@@ -1,5 +1,27 @@
 /* General Body Styles */
 body {
+    overflow: hidden;
+    background: linear-gradient(45deg, #FBFADA, #9c9f7a, #d4c082, #436850);
+    background-size: 300% 300%;
+    animation: backgroundShift 10s linear infinite;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 60px; /* Ensure enough space for the footer */
+}
+
+@keyframes backgroundShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* General Body Styles */
+body {
     background-color: #FBFADA; /* Light yellow background */
     font-family: 'Poppins', sans-serif;
     padding-bottom: 60px; /* Ensure enough space for the footer */
@@ -58,30 +80,47 @@ body {
 /* Icon Container */
 .icon-container {
     margin-top: 90px;
+    justify-content: center; /* Center the containers horizontally */
 }
 
 .icon-box {
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Vertically center content */
     align-items: center;
+    background-color: #e9dcdc; /* Light blue background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 30px; /* Increased padding for larger containers */
+    width: 250px; /* Increased width */
+    height: 250px; /* Set a fixed height for uniformity */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a card-like effect */
     text-decoration: none;
     color: #12372A; /* Dark green */
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-left: 30px;
+    margin-bottom: 50px; 
+}
+
+.icon-box:last-child {
+    margin-right: 0; /* Remove the margin on the last container */
 }
 
 .icon-box i {
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Increased margin for spacing */
     color: #12372A;
+    font-size: 60px; /* Larger icons */
 }
 
 .icon-box p {
-    font-size: 18px;
+    font-size: 24px; /* Larger font for the labels */
     font-weight: 600;
+    color: #12372A;
+    margin: 0;
 }
 
 .icon-box:hover {
-    color: #ADBC9F; /* Light green */
-    transform: scale(1.1);
+    background-color: #FBFADA; /* Slightly darker blue on hover */
+    transform: scale(1.05);
 }
 
 /* Footer Styling */
@@ -126,13 +165,18 @@ footer a:hover {
     }
 
     .icon-box {
-        margin: 10px; /* Add spacing between icons */
+        margin: 15px; /* Add spacing between icons */
         width: 80%; /* Ensure icons do not stretch too wide */
+        height: auto; /* Auto adjust height */
         text-align: center;
     }
 
     .icon-box p {
-        font-size: 16px; /* Smaller text for mobile */
+        font-size: 18px; /* Smaller text for mobile */
+    }
+
+    .icon-box i {
+        font-size: 30px; /* Adjust icon size for mobile */
     }
 
     /* Welcome Text */
