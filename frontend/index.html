@@ -205,7 +205,20 @@
     }
 }
 
+
+  /* Warning message */
+  #geoWarning {
+      color: red;
+      text-align: center;
+      display: none;
+    }
+
     </style>
+
+  <!-- Add Socket.IO client script -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script defer src="js/scripts.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -220,10 +233,18 @@
                     QueueEase will streamline queue management and reduce waiting times
                     for <b>PhilHealth</b> establishment.
                 </p>
-                <div class="buttons">
-                    <a href="register.html" class="btn register">Register</a>
-                    <a href="login.html" class="btn login">Log in</a>
-                </div>
+
+                  <!-- Geolocation Warning Message -->
+    <p id="geoWarning" style="color: red; text-align: center; display: none;">
+        This service is only accessible from approved locations.
+      </p>
+
+
+      <div class="buttons">
+        <a href="register.html" class="btn register" id="registerButton">Register</a>
+        <a href="login.html" class="btn login" id="loginButton">Log in</a>
+    </div>
+    
             </div>
         </section>
     </main>
