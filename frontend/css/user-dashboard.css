@@ -214,3 +214,159 @@ footer a:hover {
         font-size: 12px; /* Slightly smaller font size for mobile */
     }
 }
+
+
+/* General Styles */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.18);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .welcome-message {
+    padding-left: 20px;
+  }
+  
+  .welcome-message h3 {
+    color: #12372A;
+    font-weight: 600;
+    font-size: 38px;
+  }
+  
+  .welcome-message p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .icon-container {
+    margin-top: 30px;
+  }
+  
+  .icon-box {
+    display: inline-block;
+    padding: 25px;
+    width: 160px;
+    height: 210px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+  
+  .icon-box i {
+    font-size: 55px;
+    margin-top: 25px;
+    color: #12372A;
+  }
+  
+  .icon-box p {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #12372A;
+  }
+  
+  .text-center img {
+    max-width: 75%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .text-center h4 {
+    color: #12372A;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .text-center p {
+    font-size: 15px;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+    /* Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Navbar Adjustments */
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar a {
+        font-size: 0.9rem; /* Slightly smaller font size for mobile */
+    }
+
+    /* Adjust Icon Box layout for small screens */
+    @media (max-width: 768px) {
+        .icon-container {
+            margin-left: 60px;
+            margin-top: 60px;
+            display: flex;
+            flex-wrap: nowrap;  /* Prevent wrapping */
+            justify-content: center; /* Center icons horizontally */
+            align-items: center; /* Center icons vertically */
+            gap: 15px; /* Add space between icons */
+        }
+    
+        .icon-box {
+            margin: 0; /* Remove extra margins */
+            width: 80%; /* Ensure icons do not stretch too wide */
+            height: auto; /* Auto adjust height */
+            text-align: center;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+    
+        .icon-container .icon-box p {
+            font-size: 5px; /* Smaller text for mobile */
+            text-align: center;
+        }
+    
+        .icon-box i {
+            font-size: 30px; /* Adjust icon size for mobile */
+        }
+    }
+    
+    /* Welcome Text */
+    .welcome-text {
+        font-size: 30px; /* Smaller font size for mobile screens */
+        text-align: center; /* Center the welcome text */
+        margin-bottom: 20px; /* Add space below welcome text */
+    }
+
+    /* Footer Adjustments */
+    footer {
+        padding: 10px;
+        font-size: 12px; /* Slightly smaller font size for mobile */
+    }
+}
+
+/* Extra small mobile adjustments */
+@media (max-width: 576px) {
+    .icon-container {
+        justify-content: flex-start; /* Align icons to the start */
+        gap: 10px; /* Ensure spacing between icons */
+        white-space: nowrap; /* Prevent wrapping of icons */
+        margin-bottom: 30px;
+    }
+
+    .icon-box {
+        width: 100px; /* Further reduced size on very small screens */
+        height: 140px;
+        padding: 15px;
+    }
+
+    .icon-box i {
+        font-size: 40px; /* Resize the icon for small screens */
+    }
+
+    .icon-box p {
+        font-size: 12px;  /* Smaller text */
+    }
+}
