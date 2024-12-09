@@ -94,8 +94,11 @@ body {
 
 /* Icon Container */
 .icon-container {
-    margin-top: 90px;
-    justify-content: center; /* Center the containers horizontally */
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center; /* Center the icons horizontally */
+    gap: 30px; /* Add space between rows and columns */
 }
 
 .icon-box {
@@ -105,29 +108,24 @@ body {
     align-items: center;
     background-color: #ffffff; /* Light blue background */
     border-radius: 10px; /* Rounded corners */
-    padding: 0px; /* Increased padding for larger containers */
-    width: 250px; /* Increased width */
-    height: 250px; /* Set a fixed height for uniformity */
+    padding: 20px; /* Padding for better spacing */
+    width: 220px; /* Set a consistent width */
+    height: 220px; /* Set a consistent height */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a card-like effect */
     text-decoration: none;
     color: #12372A; /* Dark green */
     transition: transform 0.3s ease, background-color 0.3s ease;
-    margin-left: 70px;
-    margin-bottom: 90px; 
-}
-
-.icon-box:last-child {
-    margin-right: 0; /* Remove the margin on the last container */
+    margin: 10px; /* Ensure proper spacing */
 }
 
 .icon-box i {
-    margin-bottom: 15px; /* Increased margin for spacing */
+    margin-bottom: 15px; /* Space between icon and text */
     color: #12372A;
-    font-size: 60px; /* Larger icons */
+    font-size: 50px; /* Standardized icon size */
 }
 
 .icon-box p {
-    font-size: 24px; /* Larger font for the labels */
+    font-size: 20px; /* Label font size */
     font-weight: 600;
     color: #12372A;
     margin: 0;
@@ -136,6 +134,39 @@ body {
 .icon-box:hover {
     background-color: #FBFADA; 
     transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .icon-box {
+        width: 180px; /* Adjust width for smaller screens */
+        height: 180px; /* Adjust height */
+        padding: 15px; /* Reduce padding */
+    }
+
+    .icon-box i {
+        font-size: 40px; /* Smaller icons */
+    }
+
+    .icon-box p {
+        font-size: 16px; /* Smaller label font */
+    }
+}
+
+@media (max-width: 480px) {
+    .icon-box {
+        width: 150px; /* Compact size for very small screens */
+        height: 150px;
+        padding: 10px; /* Reduced padding */
+    }
+
+    .icon-box i {
+        font-size: 30px; /* Even smaller icons */
+    }
+
+    .icon-box p {
+        font-size: 14px; /* Smaller label font */
+    }
 }
 
 
@@ -165,6 +196,47 @@ footer a:hover {
     color: #FBFADA; /* Light yellow on hover */
 }
 
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Navbar Adjustments for Small Screens */
+    .navbar {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .navbar a {
+        display: block;
+        margin: 5px 0; /* Adjust margin for smaller screens */
+        font-size: 14px; /* Smaller font size */
+    }
+
+    /* Adjusting Logout Button for Mobile */
+    .logout-btn {
+        width: 100%; /* Make the button full width */
+        padding: 12px 20px; /* Increase padding for mobile */
+        margin-top: 15px; /* Add margin for spacing */
+    }
+
+    /* Center Content Adjustments */
+    .icon-container {
+        margin-top: 50px; /* Reduced margin for mobile */
+    }
+
+    .icon-box {
+        margin-bottom: 20px; /* Adjust spacing */
+        padding: 15px;
+    }
+
+    .icon-box p {
+        font-size: 16px; /* Smaller font size */
+    }
+
+    /* Footer Styling for Small Screens */
+    footer {
+        font-size: 12px; /* Reduce font size */
+        padding: 10px;
+    }
+}
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
     /* Navbar Adjustments for Small Screens */
