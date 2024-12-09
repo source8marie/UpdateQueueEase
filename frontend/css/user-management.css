@@ -18,31 +18,66 @@ body, h1, h2, h3, h4, h5, h6, p, a {
     padding-bottom: 60px; /* This can be adjusted or removed */
   }
 
-  /* Navbar Styles */
-  .navbar {
-    background-color: #12372A; /* Dark green background */
-    padding-left: 20px;
-    display: flex;
-    justify-content: space-between; /* Space between items */
-    align-items: center;
-    padding: 10px 20px; /* Adjusted for better spacing */
-  }
-  
-  .navbar a, .navbar .queueease {
-    color: #FBFADA; /* Light yellow text */
-    text-decoration: none;
-    font-size: 1.1rem; /* Slightly larger text for visibility */
-    display: flex;
-    align-items: center; /* Align text and icons */
-    padding: 8px 15px; /* Padding for better spacing */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition */
-  }
-  
-  .navbar a:hover, .navbar .queueease:hover {
-    color: #ADBC9F; /* Light green hover effect */
-    transform: scale(1.05); /* Slightly enlarge on hover */
-  }
+    /* Navbar Styles */
+    .navbar {
+      background: #12372A; 
+      position: fixed; /* Make navbar stay at the top */
+      width: 100%; /* Ensure it spans the full width */
+      top: 0;
+      left: 0;
+      z-index: 1000; /* Keep navbar above other content */
+      height: 60px; /* Set height for the navbar */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px; /* Adjust padding */
+    }
     
+    /* Back Link Styling */
+    .navbar a {
+      color: #FBFADA; /* Light yellow text */
+      text-decoration: none;
+      font-size: 1rem; /* Slightly larger text for visibility */
+      display: flex;
+      align-items: center; /* Align text and icons */
+      padding: 8px 15px; /* Padding for better spacing */
+      transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition */
+    }
+    
+    /* Hover effects for the navbar */
+    .navbar a:hover {
+      color: #ADBC9F; /* Light green hover effect */
+      transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+    
+    /* QueueEase text with logo */
+    .queueease {
+      display: flex;
+      align-items: center;
+      font-size: 1.25rem; /* Adjust font size */
+      color: #FBFADA; /* Light yellow text */
+    }
+    
+    /* Logo Styling */
+    .navbar-logo {
+      height: 40px; /* Adjust logo height */
+      width: auto; /* Maintain aspect ratio */
+      margin-right: 7px; /* Space between logo and text */
+    }
+    
+    /* Icon Styling in Navbar */
+    .navbar a i, .navbar .queueease i {
+      margin-right: 8px; /* Add space between icon and text */
+      color: inherit; /* Ensures icon color matches the text */
+      transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition */
+    }
+    
+    /* Hover effect for navbar icons */
+    .navbar a:hover i, .navbar .queueease:hover i {
+      color: #ADBC9F; /* Light green color for icons on hover */
+      transform: scale(1.1); /* Slightly enlarge icon on hover */
+    }
+        
 
   /* Centering Main Content */
   .container-centered {
