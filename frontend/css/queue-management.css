@@ -10,55 +10,62 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background-color: #12372A; /* Dark green background */
-    padding-left: 20px;
-    display: flex;
-    justify-content: space-between; /* Space between items */
-    align-items: center;
-    padding: 10px 20px; /* Adjusted for better spacing */
+  background: #12372A; 
+  position: fixed; /* Make navbar stay at the top */
+  width: 100%; /* Ensure it spans the full width */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Keep navbar above other content */
+  height: 60px; /* Set height for the navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Adjust padding */
 }
 
-/* Navbar items */
-.navbar a, .navbar .queueease {
-    color: #FBFADA; /* Light yellow text */
-    text-decoration: none;
-    font-size: 1.1rem; /* Slightly larger text for visibility */
-    display: flex;
-    align-items: center; /* Align text and icons */
-    padding: 8px 15px; /* Padding for better spacing */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition */
+/* Back Link Styling */
+.navbar a {
+  color: #FBFADA; /* Light yellow text */
+  text-decoration: none;
+  font-size: 1rem; /* Slightly larger text for visibility */
+  display: flex;
+  align-items: center; /* Align text and icons */
+  padding: 8px 15px; /* Padding for better spacing */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition */
 }
 
-/* Hover effect */
-.navbar a:hover, .navbar .queueease:hover {
-    color: #ADBC9F; /* Light green hover effect */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+/* Hover effects for the navbar */
+.navbar a:hover {
+  color: #ADBC9F; /* Light green hover effect */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
+/* QueueEase text with logo */
+.queueease {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem; /* Adjust font size */
+  color: #FBFADA; /* Light yellow text */
+}
+
+/* Logo Styling */
+.navbar-logo {
+  height: 40px; /* Adjust logo height */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 7px; /* Space between logo and text */
+}
+
+/* Icon Styling in Navbar */
 .navbar a i, .navbar .queueease i {
-    margin-right: 8px; /* Add space between icon and text */
-    color: inherit; /* Ensures icon color matches the text */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition */
+  margin-right: 8px; /* Add space between icon and text */
+  color: inherit; /* Ensures icon color matches the text */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition */
 }
 
+/* Hover effect for navbar icons */
 .navbar a:hover i, .navbar .queueease:hover i {
-    color: #ADBC9F; /* Light green color for icons on hover */
-    transform: scale(1.1); /* Slightly enlarge icon on hover */
-}
-
-/* Navbar text style */
-.navbar-text {
-    color: #FBFADA; /* Light yellow text color */
-    text-decoration: none;
-    font-size: 1.1rem; /* Same size as navbar items */
-    padding: 8px 15px; /* Same padding as navbar items */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-    margin-left: auto; /* Aligns it to the right */
-}
-
-.navbar-text:hover {
-    color: #ADBC9F; /* Light green color on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+  color: #ADBC9F; /* Light green color for icons on hover */
+  transform: scale(1.1); /* Slightly enlarge icon on hover */
 }
 
 /* Main Content Styling */
@@ -142,28 +149,54 @@ table td button.btn-danger {
     color: white;
 }
 
-/* Footer Styling */
 footer {
     background-color: #12372A; /* Dark green */
     color: #FBFADA; /* Light yellow text */
     text-align: center;
     padding: 15px;
-    font-size: 14px;
+    position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
-    position: relative; /* This makes it part of the document flow */
-    margin-top: auto; /* Ensures footer stays at the bottom */
-}
-
-footer a {
+    font-size: 14px;
+  }
+  
+  footer a {
     color: #ADBC9F; /* Light green */
     text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: #FBFADA; /* Light yellow on hover */
+  }
+  
+
+/* Main Content Styling */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-footer a:hover {
-    color: #FBFADA; /* Light yellow on hover */
+/* Queue Stats Section */
+#queueStats {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
+
+#queueStats p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+#queueStats strong {
+    font-weight: 600;
+}
+
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
