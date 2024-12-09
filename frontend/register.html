@@ -37,19 +37,19 @@
       <h2 class="text-center">New User Registration - Step 1</h2>
       
       <div class="mb-3">
-        <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name" required>
+        <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name" required pattern="[A-Za-z\s]+" title="First name should only contain letters.">
       </div>
       <div class="mb-3">
-        <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name" required>
+        <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name" required pattern="[A-Za-z\s]+" title="Last name should only contain letters.">
       </div>
       <div class="mb-3">
         <input type="text" id="address" name="address" class="form-control" placeholder="Complete Address" required>
       </div>
       <div class="mb-3">
-        <input type="text" id="zip_code" name="zip_code" class="form-control" placeholder="Zip Code" required>
+        <input type="text" id="zip_code" name="zip_code" class="form-control" placeholder="Zip Code" required pattern="\d{4}" title="Zip code should be 4 digits.">
       </div>
       <div class="mb-3">
-        <input type="tel" id="contact_number" name="contact_number" class="form-control" placeholder="Contact Number" required>
+        <input type="tel" id="contact_number" name="contact_number" class="form-control" placeholder="Contact Number" required pattern="\d{11}" title="Contact number should be 11 digits.">
       </div>
 
       <div class="d-flex justify-content-between">
@@ -66,7 +66,7 @@
         <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
       </div>
       <div class="mb-3">
-        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required minlength="8" pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,}" title="Password should be at least 8 characters long and include at least one number, one symbol, and one letter.">
       </div>
       
       <div class="d-flex justify-content-between">
@@ -94,14 +94,11 @@
 
     // Show Step 2 Form
     continueButton.addEventListener('click', () => {
-      const formData = new FormData(step1Form);
-      const isEmpty = Array.from(formData.values()).some(value => value.trim() === '');
-
-      if (isEmpty) {
-        alert('Please fill out all fields before continuing.');
-      } else {
+      if (step1Form.checkValidity()) {
         step1Form.classList.add('d-none');
         step2Form.classList.remove('d-none');
+      } else {
+        step1Form.reportValidity();
       }
     });
 
@@ -114,6 +111,10 @@
     // Submit Registration
     step2Form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      if (!step2Form.checkValidity()) {
+        step2Form.reportValidity();
+        return;
+      }
 
       const step1Data = new FormData(step1Form);
       const step2Data = new FormData(step2Form);
@@ -122,6 +123,8 @@
         ...Object.fromEntries(step1Data.entries()),
         ...Object.fromEntries(step2Data.entries())
       };
+
+      console.log('Submitting registration data:', data); // Log the data being sent
 
       try {
         const response = await fetch('/api/register', {

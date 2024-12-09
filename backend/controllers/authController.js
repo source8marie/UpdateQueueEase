@@ -5,16 +5,30 @@ const { db } = require('../models/database');
 exports.registerUser = (req, res) => {
   const { first_name, last_name, address, zip_code, contact_number, email, password, role } = req.body;
 
-  const query = `
-    INSERT INTO users (first_name, last_name, address, zip_code, contact_number, email, password, role)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-  `;
-  db.run(query, [first_name, last_name, address, zip_code, contact_number, email, password.trim(), role || 'user'], function (err) {
+  // Check if email already exists
+  const checkEmailQuery = `SELECT email FROM users WHERE email = ?`;
+  db.get(checkEmailQuery, [email.trim()], (err, row) => {
     if (err) {
-      console.error('Error registering user:', err.message);
-      return res.status(400).json({ message: 'Error registering user.' });
+      console.error('Error checking email:', err.message);
+      return res.status(500).json({ message: 'Internal server error.' });
     }
-    res.status(201).json({ user_id: this.lastID }); // Respond with the user ID
+
+    if (row) {
+      return res.status(400).json({ message: 'Email already exists.' });
+    }
+
+    // Proceed with registration if email does not exist
+    const query = `
+      INSERT INTO users (first_name, last_name, address, zip_code, contact_number, email, password, role)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+    db.run(query, [first_name, last_name, address, zip_code, contact_number, email.trim(), password.trim(), role || 'user'], function (err) {
+      if (err) {
+        console.error('Error registering user:', err.message);
+        return res.status(400).json({ message: `Error registering user: ${err.message}` });
+      }
+      res.status(201).json({ user_id: this.lastID }); // Respond with the user ID
+    });
   });
 };
 
@@ -23,7 +37,7 @@ exports.loginUser = (req, res) => {
   const { email, password } = req.body;
 
   const query = `SELECT * FROM users WHERE email = ? AND password = ?`;
-  db.get(query, [email.trim(), password.trim()], (err, user) => {
+  db.get(query, [email.trim(), String(password).trim()], (err, user) => {
     if (err) {
       console.error('Database error:', err.message);
       return res.status(500).json({ message: 'Internal server error.' });
