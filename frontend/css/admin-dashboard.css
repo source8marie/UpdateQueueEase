@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
     background: linear-gradient(45deg, #FBFADA, #9c9f7a, #d4c082, #436850);
     background-size: 300% 300%;
     animation: backgroundShift 10s linear infinite;
@@ -25,15 +25,13 @@ body {
     }
 }
 
-/* Body Padding Adjustment */
-body {
-    padding-bottom: 60px; /* This can be adjusted or removed */
-}
-
 /* Navbar Styles */
 .navbar {
     background: linear-gradient(90deg, #12372A, #1A5E3A,#416c55,#709682);
     padding: 10px 20px; /* Adjust padding for mobile */
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    justify-content: space-between; /* Space items evenly */
 }
 
 .navbar a {
@@ -183,10 +181,6 @@ footer {
     font-size: 14px;
 }
 
-body {
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
 footer a {
     color: #ADBC9F; /* Light green */
     text-decoration: none;
@@ -289,6 +283,9 @@ footer a:hover {
         font-size: 12px; /* Further reduce font size */
         margin: 5px 0; /* Adjust margin */
     }
+    .row {
+        align-items: center;
+    }
 
     .icon-container {
         margin-top: 30px; /* Further reduce margin for small screens */
@@ -300,6 +297,12 @@ footer a:hover {
 
     footer {
         font-size: 10px; /* Very small font for footer */
+    }
+
+    .container {
+        padding: 10px; /* Adjust padding */
+        width: 100%; /* Ensure full width */
+        margin: 0 auto; /* Center the container */
     }
 }
 
@@ -377,6 +380,56 @@ footer a:hover {
 @media (max-width: 480px) {
   .navbar {
     padding: 8px 10px; /* Adjust padding */
+    flex-direction: row; /* Display items in a row */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items evenly */
+  }
+
+  .navbar a {
+    font-size: 0.85rem; /* Further reduce font size */
+  }
+
+  .icon-container {
+    margin-top: 30px;
+  }
+
+  .icon-box {
+    margin: 10px; /* Adjust spacing */
+    width: 120px; /* Adjust width */
+    height: 120px; /* Adjust height */
+  }
+
+  .icon-box p {
+    font-size: 14px; /* Adjust text size */
+  }
+
+  .icon-box i {
+    font-size: 30px; /* Adjust icon size */
+  }
+
+  footer {
+    padding: 8px;
+    font-size: 10px; /* Adjust font size */
+  }
+
+  .welcome-message h3 {
+    font-size: 20px; /* Adjust font size */
+  }
+
+  .container {
+    padding: 10px; /* Adjust padding */
+    width: 100%; /* Ensure full width */
+    margin: 0 auto; /* Center the container */
+  }
+}
+
+/* Responsive Design for Small Mobile Devices */
+@media (max-width: 425px) {
+  .navbar {
+    padding: 8px 10px; /* Adjust padding */
+    flex-direction: row; /* Display items in a row */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items evenly */
   }
 
   .navbar a {
@@ -405,4 +458,59 @@ footer a:hover {
     padding: 8px;
     font-size: 10px; /* Adjust font size */
   }
+<<<<<<< Updated upstream
 }
+=======
+
+  .welcome-message h3 {
+    font-size: 15px;
+  }
+}
+
+/* Responsive Design for Extra Small Mobile Devices (max-width: 375px) */
+@media (max-width: 375px) {
+  .navbar {
+    padding: 6px 8px; /* Further adjust padding */
+    flex-direction: row; /* Display items in a row */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items evenly */
+  }
+
+  .navbar a {
+    font-size: 0.75rem; /* Further reduce font size */
+  }
+
+  .icon-container {
+    margin-top: 20px;
+  }
+
+  .icon-box {
+    margin: 8px; /* Further adjust spacing */
+    width: 100px; /* Further adjust width */
+    height: 100px; /* Further adjust height */
+  }
+
+  .icon-box p {
+    font-size: 12px; /* Further adjust text size */
+  }
+
+  .icon-box i {
+    font-size: 25px; /* Further adjust icon size */
+  }
+
+  footer {
+    padding: 6px;
+    font-size: 8px; /* Further adjust font size */
+  }
+
+  .welcome-message h3 {
+    font-size: 18px; /* Further adjust font size */
+  }
+
+  .container {
+    padding: 8px; /* Further adjust padding */
+    width: 100%; /* Ensure full width */
+    margin: 0 auto; /* Center the container */
+  }
+}
+>>>>>>> Stashed changes
