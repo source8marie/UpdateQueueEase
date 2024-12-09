@@ -1,38 +1,40 @@
-/* General Body Styles */
-body {
-    background-color: #FBFADA; /* Light yellow background */
-    font-family: 'Poppins', sans-serif;
-    padding-bottom: 60px; /* Ensure enough space for the footer */
-}
+  /* General Body Styles */
+    body {
+        background-color: #FBFADA; /* Light yellow background */
+        font-family: 'Poppins', sans-serif;
+        padding-bottom: 60px; /* Ensure enough space for the footer */
+    }
 
- /* Navbar Styles */
- .navbar {
-    background-color: #12372A; /* Dark green background */
-  }
-  
-  .navbar a {
-    color: #FBFADA; /* Light yellow text */
-    text-decoration: none;
-  }
-  
-  .navbar a:hover {
-    color: #ADBC9F; /* Light green hover effect */
-  }
-  
-  /* Highlight the active nav item */
-  .nav-item.active .nav-link {
-    color: #d3a557; /* Lighter color for the active page */
-  }
-  
-  .nav-item .nav-link {
-    color: #FBFADA; /* Light yellow text */
-    text-decoration: none;
-  }
-  
-  .nav-item .nav-link:hover {
-    color: #ADBC9F; /* Light green hover effect */
-  }
-  
+    /* Navbar Styles */
+    .navbar {
+      background: linear-gradient(90deg, #12372A, #1A5E3A,#416c55,#709682);
+      padding: 10px 20px; /* Adjust padding for mobile */
+    }
+
+    .navbar a {
+      color: #FBFADA; /* Light yellow text */
+      text-decoration: none;
+      font-size: 1rem; /* Adjust font size for better readability */
+    }
+
+    .navbar a:hover {
+      color: #ADBC9F; /* Light green hover effect */
+    }
+
+    .navbar-logo {
+      height: 40px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+    }
+
+    .navbar-brand {
+      font-size: 2.25rem; /* Adjust font size if necessary */
+    }
+
+    .navbar-dark .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+      
 
    /* Logout Button */
    .logout-btn {
