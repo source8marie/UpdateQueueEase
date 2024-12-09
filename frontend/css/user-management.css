@@ -220,3 +220,74 @@ footer a:hover {
     padding: 10px;
   }
 }
+
+/* Responsive Design for Tablets */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar a {
+    font-size: 0.95rem; /* Slightly smaller font size */
+  }
+
+  .container-centered {
+    padding: 15px;
+  }
+
+  form.card {
+    padding: 15px;
+  }
+
+  table th, table td {
+    padding: 8px; /* Adjust padding */
+  }
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    font-size: 0.9rem; /* Slightly smaller font size */
+  }
+
+  .container-centered {
+    padding: 10px;
+  }
+
+  form.card {
+    padding: 10px;
+  }
+
+  table th, table td {
+    padding: 6px; /* Adjust padding */
+  }
+}
+
+/* Responsive Design for Small Mobile Devices */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 10px; /* Adjust padding */
+  }
+
+  .navbar a {
+    font-size: 0.85rem; /* Further reduce font size */
+  }
+
+  .container-centered {
+    padding: 5px;
+  }
+
+  form.card {
+    padding: 5px;
+  }
+
+  table th, table td {
+    padding: 4px; /* Adjust padding */
+  }
+}

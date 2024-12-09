@@ -230,3 +230,107 @@ footer a:hover {
         font-size: 10px; /* Very small font for footer */
     }
 }
+
+/* Responsive Design for Tablets */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar a {
+    font-size: 0.95rem; /* Slightly smaller font size */
+  }
+
+  .icon-container {
+    margin-top: 70px;
+  }
+
+  .icon-box {
+    margin: 20px; /* Adjust spacing */
+    width: 200px; /* Adjust width */
+    height: 200px; /* Adjust height */
+  }
+
+  .icon-box p {
+    font-size: 20px; /* Adjust text size */
+  }
+
+  .icon-box i {
+    font-size: 50px; /* Adjust icon size */
+  }
+
+  footer {
+    padding: 12px;
+    font-size: 13px; /* Adjust font size */
+  }
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    font-size: 0.9rem; /* Slightly smaller font size */
+  }
+
+  .icon-container {
+    margin-top: 50px;
+  }
+
+  .icon-box {
+    margin: 15px; /* Adjust spacing */
+    width: 180px; /* Adjust width */
+    height: 180px; /* Adjust height */
+  }
+
+  .icon-box p {
+    font-size: 18px; /* Adjust text size */
+  }
+
+  .icon-box i {
+    font-size: 45px; /* Adjust icon size */
+  }
+
+  footer {
+    padding: 10px;
+    font-size: 12px; /* Adjust font size */
+  }
+}
+
+/* Responsive Design for Small Mobile Devices */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 10px; /* Adjust padding */
+  }
+
+  .navbar a {
+    font-size: 0.85rem; /* Further reduce font size */
+  }
+
+  .icon-container {
+    margin-top: 30px;
+  }
+
+  .icon-box {
+    margin: 10px; /* Adjust spacing */
+    width: 150px; /* Adjust width */
+    height: 150px; /* Adjust height */
+  }
+
+  .icon-box p {
+    font-size: 16px; /* Adjust text size */
+  }
+
+  .icon-box i {
+    font-size: 40px; /* Adjust icon size */
+  }
+
+  footer {
+    padding: 8px;
+    font-size: 10px; /* Adjust font size */
+  }
+}

@@ -151,4 +151,74 @@ body {
       padding: 8px 16px; /* Adjust button padding for better mobile feel */
     }
   }
-  
+
+/* Responsive Design for Tablets */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar a {
+    font-size: 0.95rem; /* Slightly smaller font size */
+  }
+
+  .content-container {
+    padding: 20px;
+  }
+
+  #notificationsContainer {
+    max-height: 250px; /* Adjust max height */
+  }
+
+  #seeAllBtn {
+    padding: 8px 16px; /* Adjust button padding */
+  }
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    font-size: 0.9rem; /* Slightly smaller font size */
+  }
+
+  .content-container {
+    padding: 15px;
+  }
+
+  #notificationsContainer {
+    max-height: 200px; /* Adjust max height */
+  }
+
+  #seeAllBtn {
+    padding: 8px 16px; /* Adjust button padding */
+  }
+}
+
+/* Responsive Design for Small Mobile Devices */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 10px; /* Adjust padding */
+  }
+
+  .navbar a {
+    font-size: 0.85rem; /* Further reduce font size */
+  }
+
+  .content-container {
+    padding: 10px;
+  }
+
+  #notificationsContainer {
+    max-height: 150px; /* Adjust max height */
+  }
+
+  #seeAllBtn {
+    padding: 6px 12px; /* Adjust button padding */
+  }
+}

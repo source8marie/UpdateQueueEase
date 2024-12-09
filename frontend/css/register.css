@@ -180,3 +180,65 @@ footer a:hover {
       font-size: 12px;
   }
 }
+
+/* Responsive Design for Tablets */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar a {
+    font-size: 0.95rem; /* Slightly smaller font size */
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  form .form-control, form .btn-custom, .btn-secondary {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    font-size: 0.9rem; /* Slightly smaller font size */
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  form .form-control, form .btn-custom, .btn-secondary {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Responsive Design for Small Mobile Devices */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 10px; /* Adjust padding */
+  }
+
+  .navbar a {
+    font-size: 0.85rem; /* Further reduce font size */
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  form .form-control, form .btn-custom, .btn-secondary {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}

@@ -215,7 +215,6 @@ footer a:hover {
     }
 }
 
-
 /* General Styles */
 .container {
     max-width: 900px;
@@ -368,5 +367,55 @@ footer a:hover {
 
     .icon-box p {
         font-size: 12px;  /* Smaller text */
+    }
+}
+
+/* Media Queries for Small Laptops */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar a {
+        font-size: 0.95rem; /* Slightly smaller font size */
+    }
+
+    .icon-container {
+        margin-top: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center icons on small laptops */
+    }
+
+    .icon-box {
+        margin: 20px; /* Add spacing between icons */
+        width: 200px; /* Adjust width */
+        height: 200px; /* Adjust height */
+        text-align: center;
+    }
+
+    .icon-box p {
+        font-size: 20px; /* Adjust text size */
+    }
+
+    .icon-box i {
+        font-size: 50px; /* Adjust icon size */
+    }
+
+    .welcome-text {
+        font-size: 40px; /* Adjust font size */
+        text-align: center; /* Center the welcome text */
+        margin-bottom: 30px; /* Add space below welcome text */
+    }
+
+    footer {
+        padding: 12px;
+        font-size: 13px; /* Adjust font size */
+    }
+
+    .container {
+        width: 95%; /* Adjust width */
+        margin: 20px auto; /* Center the container */
+        padding: 20px; /* Adjust padding */
     }
 }
