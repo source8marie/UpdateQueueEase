@@ -82,6 +82,7 @@ main {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    margin:50px 0;
 }
 
 #queueStats p {
@@ -154,7 +155,6 @@ footer {
     color: #FBFADA; /* Light yellow text */
     text-align: center;
     padding: 15px;
-    position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
@@ -258,8 +258,21 @@ main {
 }
 
 @media (max-width: 480px) {
-    .navbar {
-        padding: 8px 10px; /* Adjust padding */
+    .navbar, .queueease {
+        padding: 5px 10px;
+        font-size: 1rem;
+        flex-direction: row;
+    }
+
+    #queueStats {
+        margin: 50px 0;
+        width: 83vh;
+    }
+
+    h2{
+        font-size: 1rem;
+        padding: 5px;
+        padding-top:5px;
     }
 
     .navbar a {
@@ -270,9 +283,42 @@ main {
         padding: 5px;
     }
 
+    table {
+        width: 100%; /* Ensure table takes full width */
+        display: block; /* Make table block element */
+        margin-bottom: 40px;
+        bottom:20vh;
+    }
+
     table th, table td {
         padding: 4px; /* Adjust padding */
+        font-size: 0.8rem; /* Reduce font size */
     }
+}
+
+/* Responsive Design for Extra Small Mobile Devices (max-width: 380px) */
+@media (max-width: 380px) {
+  .navbar {
+    padding: 6px 8px; /* Further adjust padding */
+  }
+
+  .navbar a {
+    font-size: 0.75rem; /* Further reduce font size */
+  }
+
+  main {
+    padding: 4px;
+  }
+
+  table th, table td {
+    padding: 3px; /* Further adjust padding */
+    font-size: 0.75rem; /* Further reduce font size */
+  }
+
+  footer {
+    font-size: 8px; /* Further adjust font size */
+    padding: 6px; /* Further adjust padding */
+  }
 }
 
 /* General icon styling for icon */

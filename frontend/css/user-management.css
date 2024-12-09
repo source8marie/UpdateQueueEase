@@ -308,6 +308,8 @@ footer a:hover {
 @media (max-width: 480px) {
   .navbar {
     padding: 8px 10px; /* Adjust padding */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
   }
 
   .navbar a {
@@ -318,11 +320,101 @@ footer a:hover {
     padding: 5px;
   }
 
+  .queueease {
+    font-size: 1rem; /* Adjust font size */
+  }
+
   form.card {
-    padding: 5px;
+    width: 80vh;
+  }
+
+  table {
+    width: 100%; /* Ensure table takes full width */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    display: block; /* Make table block element */
   }
 
   table th, table td {
     padding: 4px; /* Adjust padding */
+    font-size: 0.8rem; /* Reduce font size */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+
+  .form-label {
+    font-size: 0.85rem; /* Adjust label font size */
+  }
+
+  .form-control {
+    font-size: 0.85rem; /* Adjust input font size */
+  }
+
+  .btn {
+    font-size: 0.85rem; /* Adjust button font size */
+    padding: 8px 10px; /* Adjust button padding */
+  }
+
+  footer {
+    font-size: 10px; /* Adjust font size */
+    padding: 8px; /* Adjust padding */
+  }
+
+  .container {
+    padding: 10px; /* Adjust padding */
+    width: 100%; /* Ensure full width */
+    margin: 0 auto; /* Center the container */
+  }
+}
+
+/* Responsive Design for Extra Small Mobile Devices (max-width: 375px) */
+@media (max-width: 375px) {
+  .navbar {
+    padding: 6px 8px; /* Further adjust padding */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+  }
+
+  .navbar a {
+    font-size: 0.75rem; /* Further reduce font size */
+  }
+
+  .container-centered {
+    padding: 4px;
+  }
+
+  .queueease {
+    font-size: 0.9rem; /* Further adjust font size */
+  }
+
+  form.card {
+    width: 70vh; /* Further adjust width */
+  }
+
+  table th, table td {
+    padding: 3px; /* Further adjust padding */
+    font-size: 0.75rem; /* Further reduce font size */
+  }
+
+  .form-label {
+    font-size: 0.75rem; /* Further adjust label font size */
+  }
+
+  .form-control {
+    font-size: 0.75rem; /* Further adjust input font size */
+  }
+
+  .btn {
+    font-size: 0.75rem; /* Further adjust button font size */
+    padding: 6px 8px; /* Further adjust button padding */
+  }
+
+  footer {
+    font-size: 8px; /* Further adjust font size */
+    padding: 6px; /* Further adjust padding */
+  }
+
+  .container {
+    padding: 8px; /* Further adjust padding */
+    width: 100%; /* Ensure full width */
+    margin: 10px auto; /* Center the container */
   }
 }

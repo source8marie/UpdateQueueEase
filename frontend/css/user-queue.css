@@ -317,6 +317,41 @@ footer a:hover {
   }
 }
 
+/* Responsive Design for Extra Small Mobile Devices (max-width: 375px) */
+@media (max-width: 375px) {
+  .navbar {
+    padding: 6px 8px; /* Further adjust padding */
+  }
+
+  .navbar a {
+    font-size: 0.75rem; /* Further reduce font size */
+  }
+
+  .queueease {
+    font-size: 0.65rem; /* Further adjust font size */
+  }
+
+  .queue-section, .join-queue-section {
+    padding: 6px; /* Further adjust padding */
+  }
+
+  main {
+    padding-top: 10px; /* Further adjust top padding for better spacing */
+  }
+
+  .queue-section h2, .join-queue-section h2 {
+    font-size: 0.9rem; /* Further adjust heading size */
+  }
+
+  .queue-status p, label {
+    font-size: 0.75rem; /* Further adjust paragraph and label size */
+  }
+
+  .btn-custom {
+    font-size: 0.75rem; /* Further adjust button text size */
+  }
+}
+
 /* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
   .container {
