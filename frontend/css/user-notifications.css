@@ -13,7 +13,7 @@
       
       /* Navbar Styles */
     .navbar {
-      background: #12372A; /* Gradient background */
+      background: #12372A; 
       position: fixed; /* Make navbar stay at the top */
       width: 100%; /* Ensure it spans the full width */
       top: 0;
